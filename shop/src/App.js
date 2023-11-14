@@ -2,12 +2,14 @@ import React from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Items from "./components/Items";
+import Categories from "./components/Categories";
 
 class App extends React.Component{
   constructor(props){
     super(props)
     this.state = {
       orders: [],
+      currentItems: [],
       items: [
         {
           id: 1,
@@ -50,8 +52,8 @@ class App extends React.Component{
           title: 'Floral wallpaper',
           img: 'wallpaper-floral.jpg',
           desc: 'Transform any room with this stunning floral wallpaper.',
-          category: 'wall decor',
-          price: '29.99 per roll'
+          category: 'decorative accents',
+          price: '29.99'
         },
 
         {
@@ -68,7 +70,7 @@ class App extends React.Component{
           title: 'Velvet curtains',
           img: 'curtains-velvet.jpg',
           desc: 'Elevate your windows with these luxurious velvet curtains.',
-          category: 'window treatments',
+          category: 'decorative accents',
           price: '79.99'
         },
 
@@ -77,7 +79,7 @@ class App extends React.Component{
           title: 'Antique mirror',
           img: 'mirror-antique.jpg',
           desc: 'Make a statement with this beautiful antique mirror.',
-          category: 'mirrors',
+          category: 'rugs',
           price: '129.99'
         },
 
@@ -86,7 +88,7 @@ class App extends React.Component{
           title: 'Rattan basket',
           img: 'basket-rattan.jpg',
           desc: 'Stay organized in style with this chic rattan basket.',
-          category: 'storage',
+          category: 'decorative accents',
           price: '19.99'
         },
 
@@ -95,7 +97,7 @@ class App extends React.Component{
           title: 'Geometric wall art',
           img: 'art-geometric.jpg',
           desc: 'Add a modern touch to your walls with this eye-catching geometric wall art.',
-          category: 'artwork',
+          category: 'decorative accents',
           price: '59.99'
         },
         {
@@ -118,16 +120,33 @@ class App extends React.Component{
 
       ]
     }
+    this.state.currentItems =this.state.items
     this.addToOrder = this.addToOrder.bind(this)
+    this.deleteOrder = this.deleteOrder.bind(this)
+    this.chooseCategory = this.chooseCategory.bind(this)
   }
   render(){
   return (
     <div className="wrapper">
-      <Header orders = {this.state.orders}/>
-      <Items items = {this.state.items} onAdd = {this.addToOrder}/>
+      <Header orders = {this.state.orders} onDelete = {this.deleteOrder}/>
+      <Categories chooseCategory={this.chooseCategory}/>
+      <Items items = {this.state.currentItems} onAdd = {this.addToOrder}/>
       <Footer/>
     </div>
   );
+  }
+  chooseCategory(category){
+    if (category==='all'){
+      this.setState({currentItems: this.state.items})
+      return
+
+    }
+    this.setState({
+      currentItems: this.state.items.filter(el=> el.category === category)
+    })
+  }
+  deleteOrder(id){
+    this.setState({orders: this.state.orders.filter(el => el.id !== id)})
   }
   addToOrder(item){
     let isInArr = false
