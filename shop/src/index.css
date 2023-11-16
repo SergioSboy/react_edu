@@ -185,6 +185,20 @@ header .shop-cart .summa{
 }
 .full-item img{
     width: 100%;
+
+
+}
+
+.full-item .krest{
+    
+    right: 15px;
+    top:5px;
+    cursor: pointer;
+    border-color: black;
+    font-weight: 200;
+    position: absolute;
+    font-size: 25px;
+    float: right;
 }
 main{
     display: flex;
@@ -220,8 +234,8 @@ main b, .full-item b{
     color: #5fa36a;
 }
 
-.full-item .add-to-cart,
-main .add-to-cart{
+
+main .add-to-cart, .full-item .add-to-cart{
     position: absolute;
     right: 20px;
     bottom: 20px;
