@@ -12,7 +12,7 @@ const Navigation = () => {
                 <a href='#'>Messages</a>
             </div>
             <div>
-                <img src="https://cdn0.iconfinder.com/data/icons/rounded-set-4/48/news-512.png"/>
+                <img src="https://cdn-icons-png.flaticon.com/512/3799/3799802.png"/>
                 <a href='#'>News</a>
             </div>
             <div>
