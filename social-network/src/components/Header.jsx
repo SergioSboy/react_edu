@@ -3,7 +3,7 @@ import React from "react";
 const Header = () => {
     return(
         <header className='header'>
-        <img src='https://img.freepik.com/free-vector/bird-colorful-logo-gradient-vector_343694-1365.jpg' />
+        <img src="https://cdn.icon-icons.com/icons2/1254/PNG/512/1495494673-jd04_84463.png"/>
       </header>
     )
 }
