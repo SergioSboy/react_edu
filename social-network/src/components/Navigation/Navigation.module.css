@@ -1,6 +1,7 @@
 .nav {
     grid-area: n;
     background-color: #262D34;
+    border-radius: 10px;
   
   }
   .nav div{

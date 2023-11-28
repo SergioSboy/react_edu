@@ -4,8 +4,8 @@ import classes from './Profile.module.css'
 const Profile = () => {
   return (
     <div className={classes.content}>
-      <div>
-        <img src='https://i.stack.imgur.com/SvWWN.png' />
+      <div >
+        <img className={classes.content__img} src='https://i.stack.imgur.com/SvWWN.png' />
       </div>
       <MyPosts />
 

@@ -1,9 +1,15 @@
 import React, { Component } from 'react'
 import classes from './Post.module.css'
-const Post = () => {
+const Post = (props) => {
     return (
         <div>
-            <div>Post 1</div>
+            <div className={classes.item}>
+                <img src={props.img} />
+                <b>
+                    {props.message}
+                </b>
+
+            </div>
         </div>
     )
 }
