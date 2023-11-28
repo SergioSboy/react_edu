@@ -1,8 +1,8 @@
 import React from "react";
-
+import classes from './Navigation.module.css'
 const Navigation = () => {
     return (
-        <nav className='nav'>
+        <nav className={classes.nav}>
             <div>
                 <img src="https://cdn-icons-png.flaticon.com/512/6915/6915987.png"/>
                 <a href='#'>Profile</a>

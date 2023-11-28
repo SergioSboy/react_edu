@@ -1,0 +1,21 @@
+.nav {
+    grid-area: n;
+    background-color: #262D34;
+  
+  }
+  .nav div{
+    margin-top: 10px;
+    cursor: pointer;
+  }
+  .nav a{
+    margin-left: 5px;
+    vertical-align: middle;
+    color: #BFD1E0;
+    text-decoration: none;
+  }
+  
+  .nav img{
+    vertical-align: middle;
+    width: 20px;
+    margin-left: 10px;
+  }
