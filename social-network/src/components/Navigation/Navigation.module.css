@@ -14,7 +14,9 @@
     color: #BFD1E0;
     text-decoration: none;
   }
-  
+.nav a.acitve{
+  color: white;
+}
   .nav img{
     vertical-align: middle;
     width: 20px;
