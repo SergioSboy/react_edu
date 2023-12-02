@@ -2,23 +2,30 @@
     grid-area: n;
     background-color: #262D34;
     border-radius: 10px;
-  
-  }
-  .nav div{
-    margin-top: 10px;
+
+
+}
+
+.nav div {
+    padding: 5px;
+    margin-bottom: 10px;
     cursor: pointer;
-  }
-  .nav a{
+
+}
+
+.nav a {
     margin-left: 5px;
     vertical-align: middle;
     color: #BFD1E0;
     text-decoration: none;
-  }
-.nav a.acitve{
-  color: white;
 }
-  .nav img{
+
+.nav a.acitve {
+    color: white;
+}
+
+.nav img {
     vertical-align: middle;
     width: 20px;
     margin-left: 10px;
-  }
+}
