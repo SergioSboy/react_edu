@@ -18,6 +18,8 @@
 }
 
 .messages{
+    display: grid;
+    grid-template-rows: 1fr 50px;
     padding: 30px;
     color: #BBBCBE;
 }
@@ -25,6 +27,7 @@
 .message{
     margin-left: 10px;
     margin-bottom: 10px;
-
-
+}
+.my_input{
+    padding: 10px;
 }
