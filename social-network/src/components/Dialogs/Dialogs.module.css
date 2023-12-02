@@ -31,3 +31,8 @@
 .my_input{
     padding: 10px;
 }
+
+.play{
+    display: grid;
+    grid-template-columns: 300px 1fr;
+}

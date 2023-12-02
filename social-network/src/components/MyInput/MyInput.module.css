@@ -4,7 +4,7 @@ input{
     background: #1E252B;
     border: 1px;
     border-radius: 10px;
-
+    color: #BBBCBE;
 }
 :active, :hover, :focus {
     outline: 0;

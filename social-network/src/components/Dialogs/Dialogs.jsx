@@ -2,6 +2,8 @@ import React from "react";
 import classes from './Dialogs.module.css'
 import MyInput from "../MyInput/MyInput";
 import {NavLink} from "react-router-dom";
+import MyButton from "../MyButton/MyButton";
+
 const Dialogs = (props) => {
     return (
         <div className={classes.dialogs}>
@@ -36,9 +38,16 @@ const Dialogs = (props) => {
                     <div className={classes.message}>How are you? Welcome my site!</div>
                     <div className={classes.message}>Yo</div>
                 </div>
-                <div className = {classes.my_input}>
-                    <MyInput/>
+                <div className={classes.play}>
+                    <div className={classes.my_input}>
+                        <MyInput placeholder ='Write...'/>
+
+                    </div>
+                    <div>
+                        <MyButton/>
+                    </div>
                 </div>
+
 
             </div>
         </div>
