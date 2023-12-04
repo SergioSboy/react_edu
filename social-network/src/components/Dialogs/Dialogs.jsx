@@ -29,24 +29,29 @@ const Dialogs = (props) => {
         {id: 5, name: "Mira"},
         {id: 6, name: "Vadim"},
     ]
+    let messagesData = [
+        {id: 1, message: 'Hi'},
+        {id: 2, message: 'How are you? Welcome my site!'},
+        {id: 3, message: 'Iam fine'},
+        {id: 4, message: 'Yo'},
+        {id: 5, message: 'Yo'},
+        {id: 6, message: 'Yo'},
+    ]
+
+    let dialogsElements = dialogsData.map(el => <DialogItem name={el.name} id={el.id}/>);
+    let messagesElements = messagesData.map(el => <Message mes={el.message}/>);
+
     return (
         <div className={classes.dialogs}>
             <div className={classes.dialogs_items}>
                 <div>
-                    <DialogItem name="Dimitry" id="1"/>
-                    <DialogItem name="Aleksey" id="2"/>
-                    <DialogItem name="Anton" id="3"/>
-                    <DialogItem name="Lioba" id="4"/>
-                    <DialogItem name="Krisi" id="5"/>
-                    <DialogItem name="Marira" id="6"/>
+                    {dialogsElements}
                 </div>
             </div>
             <div className={classes.create_line}></div>
             <div className={classes.messages}>
                 <div>
-                    <Message mes='Hi'/>
-                    <Message mes='How are you? Welcome my site!'/>
-                    <Message mes='Yo'/>
+                    {messagesElements}
                 </div>
                 <div className={classes.play}>
                     <div className={classes.my_input}>
