@@ -1,6 +1,8 @@
 import React from 'react'
 import classes from './MyPosts.module.css'
 import Post from './Post/Post';
+import MyInput from "../../MyInput/MyInput";
+import MyButton from "../../MyButton/MyButton";
 
 const MyPosts = (props) => {
     let postsElements = props.posts.map(el => <Post message={el.message} id={el.id} img={el.img}/>)
@@ -11,6 +13,16 @@ const MyPosts = (props) => {
                 <div>
                     New post
                 </div>
+                <div className={classes.play}>
+                    <div className={classes.my_inp}>
+                        <MyInput placeholder = 'Create...'/>
+                    </div>
+                    <div className={classes.my_btn}>
+                        <MyButton/>
+                    </div>
+                </div>
+
+
                 {postsElements}
             </div>
         </div>
