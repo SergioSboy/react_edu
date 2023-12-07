@@ -6,6 +6,11 @@ import MyButton from "../../MyButton/MyButton";
 
 const MyPosts = (props) => {
     let postsElements = props.posts.map(el => <Post message={el.message} id={el.id} img={el.img}/>)
+    let newPostElement = React.createRef()
+    let appPost = () => {
+        let text = newPostElement.current.value;
+        props.addPost(text)
+    }
     return (
         <div className='item'>
             <div>
@@ -15,13 +20,15 @@ const MyPosts = (props) => {
                 </div>
                 <div className={classes.play}>
                     <div className={classes.my_inp}>
-                        <MyInput placeholder = 'Create...'/>
+                        <MyInput ref={newPostElement} placeholder='Create...'/>
                     </div>
-                    <div className={classes.my_btn}>
-                        <MyButton/>
-                    </div>
-                </div>
 
+                    <div className={classes.my_btn}>
+                        <MyButton onClick/>
+                    </div>
+
+                </div>
+                <button></button>
 
                 {postsElements}
             </div>
