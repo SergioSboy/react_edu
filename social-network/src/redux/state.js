@@ -14,6 +14,7 @@ let state = {
                 img: 'https://img.freepik.com/premium-vector/avatar-of-a-woman-with-black-hair-short-hair-face_427567-610.jpg?w=2000'
             },
         ],
+        newPostText: ''
     },
     dialogsPage: {
         dialogsData: [
@@ -36,14 +37,21 @@ let state = {
 
 }
 
-export let addPost = (postMessage) => {
+export let addPost = () => {
     let newPost = {
         id: 5,
-        message: postMessage,
+        message: state.profilePage.newPostText,
         img:'https://img.freepik.com/premium-vector/male-avatar-icon-unknown-or-anonymous-person-default-avatar-profile-icon-social-media-user-business-man-man-profile-silhouette-isolated-on-white-background-vector-illustration_735449-122.jpg'
     }
 
     state.profilePage.postsData.push(newPost)
+    state.profilePage.newPostText = ''
     renderEntireTree(state)
 }
+
+export let updateNewPostText = (newText) => {
+    state.profilePage.newPostText = newText
+    renderEntireTree(state)
+}
+
 export default state;

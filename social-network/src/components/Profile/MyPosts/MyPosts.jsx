@@ -4,17 +4,19 @@ import Post from './Post/Post';
 import MyInput from "../../MyInput/MyInput";
 import MyButton from "../../MyButton/MyButton";
 
+
+
 const MyPosts = (props) => {
-    let postsElements = props.posts.map(el => <Post message={el.message} id={el.id} img={el.img}/>)
-    const [post, setPost] = useState('')
+    let postsElements = props.profilePage.postsData.map(el => <Post message={el.message} id={el.id} img={el.img}/>)
     let addPost = (e) => {
-        setPost(e.target.value)
+        props.updateNewPostText(e.target.value)
     }
 
     let addNewPost = () => {
-        props.addPost(post)
-        setPost('')
+        props.addPost()
+
     }
+
 
     return (
         <div className='item'>
@@ -26,8 +28,8 @@ const MyPosts = (props) => {
                 <div className={classes.play}>
                     <div className={classes.my_inp}>
                         <MyInput
-                            onChange={(e) => addPost(e)}
-                            value={post}
+                            onChange={addPost}
+                            value={props.profilePage.newPostText}
                             placeholder='Create...'/>
                     </div>
 
