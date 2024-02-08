@@ -3,21 +3,17 @@ import classes from './MyPosts.module.css'
 import Post from './Post/Post';
 import MyInput from "../../MyInput/MyInput";
 import MyButton from "../../MyButton/MyButton";
+import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../redux/state";
 
 
 const MyPosts = (props) => {
     let postsElements = props.profilePage.postsData.map(el => <Post message={el.message} id={el.id} img={el.img}/>)
     let addPost = (e) => {
-        props.dispatch(
-            {
-                type: 'UPDATE-NEW-POST-TEXT',
-                newText: e.target.value
-            }
-        )
+        props.dispatch(updateNewPostTextActionCreator(e))
     }
 
     let addNewPost = () => {
-        props.dispatch({type: 'ADD-POST'})
+        props.dispatch(addPostActionCreator())
 
     }
 
