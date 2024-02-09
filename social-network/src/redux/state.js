@@ -1,5 +1,7 @@
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+const UPDATE_NEW_MESSAGE_BODY = 'UPDATE-NEW-MESSAGE-BODY';
+const SEND_MESSAGE = 'SEND-MESSAGE';
 
 
 let store = {
@@ -36,6 +38,7 @@ let store = {
                 {id: 5, message: 'Yo'},
                 {id: 6, message: 'Yo'},
             ],
+            newMessageText: '',
         },
 
     },
@@ -56,22 +59,37 @@ let store = {
                 message: this._state.profilePage.newPostText,
                 img: 'https://img.freepik.com/premium-vector/male-avatar-icon-unknown-or-anonymous-person-default-avatar-profile-icon-social-media-user-business-man-man-profile-silhouette-isolated-on-white-background-vector-illustration_735449-122.jpg'
             }
-
-            this._state.profilePage.postsData.push(newPost)
-            this._state.profilePage.newPostText = ''
-            this._callSubscriber(this._state)
+            this._state.profilePage.postsData.push(newPost);
+            this._state.profilePage.newPostText = '';
+            this._callSubscriber(this._state);
         } else if (action.type === UPDATE_NEW_POST_TEXT) {
-            this._state.profilePage.newPostText = action.newText
-            this._callSubscriber(this._state)
+            this._state.profilePage.newPostText = action.newText;
+            this._callSubscriber(this._state);
+        } else if (action.type === UPDATE_NEW_MESSAGE_BODY) {
+            this._state.dialogsPage.newMessageText = action.body;
+            this._callSubscriber(this._state);
+        } else if (action.type === SEND_MESSAGE) {
+            let body = this._state.dialogsPage.newMessageText;
+            this._state.dialogsPage.newMessageText = '';
+            this._state.dialogsPage.messagesData.push({id: 6, message: body});
+            this._callSubscriber(this._state);
         }
     }
 
-}
+};
+export const sendMessageCreator = () => ({type: SEND_MESSAGE});
 
-export const addPostActionCreator = () => ({type: ADD_POST})
+export const updateNewMessageBodyCreator = (e) => ({
+    type: UPDATE_NEW_MESSAGE_BODY,
+    body: e.target.value
+});
 
-export const updateNewPostTextActionCreator = (e) => ({type: UPDATE_NEW_POST_TEXT,
-    newText: e.target.value})
+export const addPostActionCreator = () => ({type: ADD_POST});
+
+export const updateNewPostTextActionCreator = (e) => ({
+    type: UPDATE_NEW_POST_TEXT,
+    newText: e.target.value
+});
 
 // OOP store
 export default store;

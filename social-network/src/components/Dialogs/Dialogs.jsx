@@ -5,13 +5,21 @@ import MyInput from "../MyInput/MyInput";
 import MyButton from "../MyButton/MyButton";
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
+import {sendMessageCreator, updateNewMessageBodyCreator} from "../../redux/state";
 
 
 const Dialogs = (props) => {
 
-    let dialogsElements = props.state.dialogsData.map(el => <DialogItem name={el.name} id={el.id}/>);
-    let messagesElements = props.state.messagesData.map(el => <Message mes={el.message}/>);
+    let dialogsElements = props.dialogsPage.dialogsData.map(el => <DialogItem name={el.name} id={el.id}/>);
+    let messagesElements = props.dialogsPage.messagesData.map(el => <Message mes={el.message}/>);
+    let newMessageBody = props.dialogsPage.newMessageText;
+    const onSendMessageClick = () => {
+        props.dispatch(sendMessageCreator())
+    }
 
+    const onNewMessageChange = (e) => {
+        props.dispatch(updateNewMessageBodyCreator(e));
+    }
     return (
         <div className={classes.dialogs}>
             <div className={classes.dialogs_items}>
@@ -26,10 +34,14 @@ const Dialogs = (props) => {
                 </div>
                 <div className={classes.play}>
                     <div className={classes.my_input}>
-                        <MyInput placeholder='Write...'/>
+                        <MyInput
+                            placeholder='Write...'
+                            value={newMessageBody}
+                            onChange={onNewMessageChange}
+                        />
                     </div>
                     <div>
-                        <MyButton/>
+                        <MyButton onClick={onSendMessageClick}/>
                     </div>
                 </div>
 
