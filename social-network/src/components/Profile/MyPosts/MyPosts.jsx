@@ -3,7 +3,7 @@ import classes from './MyPosts.module.css'
 import Post from './Post/Post';
 import MyInput from "../../MyInput/MyInput";
 import MyButton from "../../MyButton/MyButton";
-import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../redux/state";
+import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../redux/profile-reducer";
 
 
 const MyPosts = (props) => {
