@@ -1,6 +1,22 @@
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
-const profileReducer = (state, action) => {
+
+let initialState = {
+    postsData: [
+        {
+            id: 1,
+            message: 'Hi, how are you?',
+            img: 'https://img.freepik.com/premium-vector/avatar-of-a-woman-with-blond-hair-blue-eyes-and-bob-haircut_427567-4265.jpg'
+        },
+        {
+            id: 2,
+            message: 'Hey! My name is Andy',
+            img: 'https://img.freepik.com/premium-vector/avatar-of-a-woman-with-black-hair-short-hair-face_427567-610.jpg?w=2000'
+        },
+    ],
+    newPostText: ''
+}
+const profileReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case ADD_POST:
