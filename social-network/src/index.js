@@ -7,19 +7,14 @@ import {Provider} from "react-redux";
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-export let renderEntireTree = () => {
-    root.render(
-        <React.StrictMode>
-            <Provider store={store}>
-                <App/>
-            </Provider>
-        </React.StrictMode>
-    );
-}
-renderEntireTree(store.getState());
-store.subscribe(() => {
-    let state = store.getState()
-    renderEntireTree(state);
-});
+root.render(
+    <React.StrictMode>
+        <Provider store={store}>
+            <App/>
+        </Provider>
+    </React.StrictMode>
+);
+
+
 
 
