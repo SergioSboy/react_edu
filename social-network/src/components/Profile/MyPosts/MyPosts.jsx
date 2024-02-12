@@ -8,12 +8,14 @@ import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../red
 
 const MyPosts = (props) => {
     let postsElements = props.profilePage.postsData.map(el => <Post message={el.message} id={el.id} img={el.img}/>)
-    let addPost = (e) => {
-        props.dispatch(updateNewPostTextActionCreator(e))
+    let onAddPost = (e) => {
+        props.addPost(e)
+        //props.dispatch(updateNewPostTextActionCreator(e))
     }
 
-    let addNewPost = () => {
-        props.dispatch(addPostActionCreator())
+    let onAddNewPost = () => {
+        props.addNewPost()
+        //props.dispatch(addPostActionCreator())
 
     }
 
@@ -28,13 +30,13 @@ const MyPosts = (props) => {
                 <div className={classes.play}>
                     <div className={classes.my_inp}>
                         <MyInput
-                            onChange={addPost}
+                            onChange={onAddPost}
                             value={props.profilePage.newPostText}
                             placeholder='Create...'/>
                     </div>
 
                     <div className={classes.my_btn}>
-                        <MyButton onClick={addNewPost}/>
+                        <MyButton onClick={onAddNewPost}/>
                     </div>
 
                 </div>

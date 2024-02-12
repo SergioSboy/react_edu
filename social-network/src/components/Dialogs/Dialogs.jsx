@@ -5,8 +5,6 @@ import MyInput from "../MyInput/MyInput";
 import MyButton from "../MyButton/MyButton";
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
-import {sendMessageCreator, updateNewMessageBodyCreator} from "../../redux/dialogs-reducer";
-
 
 const Dialogs = (props) => {
 
@@ -14,11 +12,11 @@ const Dialogs = (props) => {
     let messagesElements = props.dialogsPage.messagesData.map(el => <Message mes={el.message}/>);
     let newMessageBody = props.dialogsPage.newMessageText;
     const onSendMessageClick = () => {
-        props.dispatch(sendMessageCreator())
+        props.sendMessage()
     }
 
     const onNewMessageChange = (e) => {
-        props.dispatch(updateNewMessageBodyCreator(e));
+        props.updateNewMessage(e)
     }
     return (
         <div className={classes.dialogs}>
