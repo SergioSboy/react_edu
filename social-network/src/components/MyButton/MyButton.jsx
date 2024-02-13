@@ -4,7 +4,7 @@ const MyButton = (props) => {
     return (
         <div>
             <button className={classes.button} onClick={props.onClick}>
-
+                {props.name}
             </button>
         </div>
     )
