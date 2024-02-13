@@ -1,10 +1,11 @@
-import React, { Component } from 'react'
+import React from 'react'
 import classes from './Post.module.css'
+
 const Post = (props) => {
     return (
         <div>
             <div className={classes.item}>
-                <img src={props.img} />
+                <img src={props.img} alt="user photo"/>
                 <b>
                     {props.message}
                 </b>
