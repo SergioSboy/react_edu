@@ -25,17 +25,20 @@ const profileReducer = (state = initialState, action) => {
                 message: state.newPostText,
                 img: 'https://img.freepik.com/premium-vector/male-avatar-icon-unknown-or-anonymous-person-default-avatar-profile-icon-social-media-user-business-man-man-profile-silhouette-isolated-on-white-background-vector-illustration_735449-122.jpg'
             }
-            let stateCopy = {...state};
-            state.postsData = [...state.postsData];
-            stateCopy.postsData.push(newPost)
-            stateCopy.newPostText = '';
-            return stateCopy;
+            return {
+                ...state,
+                postsData:[...state.postsData, newPost],
+                newPostText: '',
+            };
+
+
         }
         case UPDATE_NEW_POST_TEXT:
-            let stateCopy = {...state}
-            state.postsData = [...state.postsData];
-            stateCopy.newPostText = action.newText;
-            return stateCopy;
+            return {
+                ...state,
+                newPostText: action.newText
+            };
+
         default:
             return state;
     }

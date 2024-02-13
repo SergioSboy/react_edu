@@ -6,15 +6,16 @@ import MyButton from "../../MyButton/MyButton";
 
 
 const MyPosts = (props) => {
-    let postsElements = props.profilePage.postsData.map(el => <Post message={el.message} id={el.id} img={el.img}/>)
+    let postsElements = props.profilePage.postsData.map(el => <Post message={el.message} key={el.id} id={el.id}
+                                                                    img={el.img}/>)
     let onAddPost = (e) => {
         props.addPost(e)
-        //props.dispatch(updateNewPostTextActionCreator(e))
+
     }
 
     let onAddNewPost = () => {
         props.addNewPost()
-        //props.dispatch(addPostActionCreator())
+
 
     }
 
