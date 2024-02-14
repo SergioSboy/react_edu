@@ -14,6 +14,10 @@ const Navigation = () => {
                 <NavLink to='/dialogs'>Messages</NavLink>
             </div>
             <div>
+                <img src="https://www.iconpacks.net/icons/1/free-user-group-icon-296-thumb.png"/>
+                <a href='/users'>Users</a>
+            </div>
+            <div>
                 <img src="https://cdn-icons-png.flaticon.com/512/3799/3799802.png"/>
                 <NavLink to='#'>News</NavLink>
             </div>
