@@ -7,14 +7,14 @@ const Header = () => {
     return (
         <div className={classes.header}>
             <div>
-                <img src="https://cdn.icon-icons.com/icons2/1254/PNG/512/1495494673-jd04_84463.png"/>
+                <img src="https://cdn.icon-icons.com/icons2/1254/PNG/512/1495494673-jd04_84463.png" alt={'Logo'}/>
             </div>
             <div className={classes.c}>
                 <div className={classes.input}>
                     <MyInput placeholder ='Search...' />
                 </div>
                 <div className={classes.button}>
-                    <MyButton/>
+                    <MyButton name={'Send'}/>
                 </div>
             </div>
 

@@ -21,50 +21,46 @@ let Users = (props) => {
     }
 
     return (
-        <div>
+        <div className={classes.big}>
 
-            <div>
+            <div className={classes.carousel}>
                 {slicedPages.map(p => {
-                    return <span className={props.currentPage === p && classes.selectPage}
+                    return <div className={props.currentPage === p ? classes.selectPage : classes.page}
                                  onClick={() => {
                                      props.onPageChanged(p)
-                                 }}>{p}</span>
+                                 }}>{p}</div>
                 })}
-
             </div>
+            <div className={classes.grid}>
+                {props.users.map(u =>
+                    <div key={u.id} className={classes.profile}>
+                        <div>
+                            <NavLink to={'./../profile/' + u.id}>
+                                <img
+                                    src={u.photos.small !== null
+                                        ? u.photos.small
+                                        : userPhoto
+                                    }
+                                    className={classes.userPhoto}
+                                    alt="User image"/>
+                            </NavLink>
+                        </div>
+                        <div>
+                            Location
+                        </div>
+                        <span>
+                            {u.name}
+                        </span>
 
-            {props.users.map(u => <div key={u.id}>
-            <span>
-                <div>
-                    <NavLink to={'./../profile/' + u.id}>
-                        <img
-                            src={u.photos.small !== null
-                                ? u.photos.small
-                                : userPhoto
-                            }
-                            className={classes.userPhoto}
-                            alt="User image"/>
-                    </NavLink>
 
-                </div>
-                <div>
-                    {u.followed
-                        ? <MyButton onClick={() => props.unfollow(u.id)} name={'Unfollow'}/>
-                        : <MyButton onClick={() => props.follow(u.id)} name={'Follow'}/>}
-
-                </div>
-            </span>
-                <span>
-                <span>
-                    <div>{u.name}</div>
-                    <div>{u.status}</div>
-                </span>
-                <span>
-                    <div>{'u.location.country'}</div>
-                    <div>{'u.location.city'}</div>
-                </span>
-            </span>
-            </div>)}
+                        <div className={classes.btn}>
+                            {u.followed
+                                ? <MyButton onClick={() => props.unfollow(u.id)} name={'Unfollow'}/>
+                                : <MyButton onClick={() => props.follow(u.id)} name={'Follow'}/>}
+                        </div>
+                    </div>
+                )}
+            </div>
         </div>
     )
 };

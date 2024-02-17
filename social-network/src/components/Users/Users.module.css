@@ -1,3 +1,8 @@
+.big{
+    display: grid;
+    grid-template-rows: 40px 1fr;
+    padding: 10px;
+}
 .userPhoto {
     border-radius: 30px;
     width: 50px;
@@ -7,5 +12,48 @@
 }
 
 .selectPage{
+    text-align: center;
+    height: 25px;
+    width: 25px;
+    border-radius: 8px;
+
+    float: left;
     font-weight: bold;
+    margin: 3px;
+    color: #aeaeaf;
+    border: 3px solid #aeaeaf ;
+
+}
+.page{
+    text-align: center;
+    height: 25px;
+    width: 25px;
+
+    color: #aeaeaf;
+    float: left;
+    margin: 3px;
+    border: 2px solid #aeaeaf;
+}
+.grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 16px;
+}
+
+.profile{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 10px;
+    border: 1px solid #aeaeaf;
+    border-radius: 10px;
+}
+
+
+.carousel{
+    margin-bottom: 20px;
+    top:50%
+}
+
+.btn{
+
 }

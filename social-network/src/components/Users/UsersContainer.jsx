@@ -5,7 +5,7 @@ import {
     setUsers,
     setTotalUsersCount,
     toggleIsFetching,
-    unFollow
+    unfollow
 } from "../../redux/users-reducer";
 import React from 'react';
 import axios from 'axios';
@@ -68,6 +68,6 @@ let mapStateToProps = (state) => {
 
 export default connect(mapStateToProps,
     {
-    follow, unFollow, setUsers,
+    follow, unfollow, setUsers,
     setCurrentPage, setTotalUsersCount, toggleIsFetching
 })(UsersContainer);
