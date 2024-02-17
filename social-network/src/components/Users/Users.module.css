@@ -18,10 +18,10 @@
     border-radius: 8px;
 
     float: left;
-    font-weight: bold;
+
     margin: 3px;
-    color: #aeaeaf;
-    border: 3px solid #aeaeaf ;
+    background: #1E252B;
+    border: 3px ;
 
 }
 .page{
@@ -29,10 +29,10 @@
     height: 25px;
     width: 25px;
 
-    color: #aeaeaf;
+
     float: left;
     margin: 3px;
-    border: 2px solid #aeaeaf;
+    background: #1E252B;
 }
 .grid{
     display: grid;
@@ -44,8 +44,8 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     padding: 10px;
-    border: 1px solid #aeaeaf;
     border-radius: 10px;
+    background: #2E3F4D;
 }
 
 
