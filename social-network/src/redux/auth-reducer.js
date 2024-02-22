@@ -1,5 +1,4 @@
 import {authAPI} from "../api/api";
-import profile from "../components/Profile/Profile";
 
 const SET_USER_DATA = 'FOLLOW';
 
