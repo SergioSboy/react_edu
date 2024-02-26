@@ -5,6 +5,8 @@ const MyInput = (props) => {
     return (
 
         <input
+            autoFocus={true}
+            onBlur={props.onBlur}
             className={classes.input}
             type="text"
             placeholder={props.placeholder}

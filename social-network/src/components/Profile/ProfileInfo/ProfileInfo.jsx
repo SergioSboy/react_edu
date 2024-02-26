@@ -1,6 +1,7 @@
 import React from 'react'
 import classes from './ProfileInfo.module.css'
 import Preloader from "../../common/Preloader/Preloader";
+import ProfileStatus from "./ProfileStatus";
 
 const ProfileInfo = (props) => {
 
@@ -18,6 +19,7 @@ const ProfileInfo = (props) => {
                 {props.profile.fullName}
             </div>
             <div>
+                <ProfileStatus status={'Hey Hey'}/>
                 CONTACT:
             </div>
             <div>
