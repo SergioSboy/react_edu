@@ -5,6 +5,7 @@ const MyInput = (props) => {
     return (
 
         <input
+            ref={props.ref}
             autoFocus={true}
             onBlur={props.onBlur}
             className={classes.input}
