@@ -1,24 +1,32 @@
 import React from 'react'
 import classes from './MyPosts.module.css'
 import Post from './Post/Post';
-import MyInput from "../../MyInput/MyInput";
 import MyButton from "../../MyButton/MyButton";
+import {Field, reduxForm} from "redux-form";
+const AddNewPostForm = (props) => {
+    return (
+        <form className={classes.play} onSubmit={props.handleSubmit}>
+            <div className={classes.my_inp}>
+                <Field component='textarea' placeholder='Create...' name='newPostText'/>
+            </div>
 
+            <div className={classes.my_btn}>
+                <MyButton name={'Send'}/>
+            </div>
+        </form>
+    )
+}
+
+const AddNewPostFormRedux = reduxForm({form: 'newPostForm'})(AddNewPostForm);
 
 const MyPosts = (props) => {
+
     let postsElements = props.profilePage.postsData.map(el => <Post message={el.message} key={el.id} id={el.id}
                                                                     img={el.img}/>)
-    let onAddPost = (e) => {
-        props.addPost(e)
+    let onAddPost = (value) => {
+        props.addNewPost(value.newPostText)
 
     }
-
-    let onAddNewPost = () => {
-        props.addNewPost()
-
-
-    }
-
 
     return (
         <div className='item'>
@@ -27,24 +35,15 @@ const MyPosts = (props) => {
                 <div>
                     New post
                 </div>
-                <div className={classes.play}>
-                    <div className={classes.my_inp}>
-                        <MyInput
-                            onChange={onAddPost}
-                            value={props.profilePage.newPostText}
-                            placeholder='Create...'/>
-                    </div>
-
-                    <div className={classes.my_btn}>
-                        <MyButton onClick={onAddNewPost} name={'Send'}/>
-                    </div>
-
+                <div>
+                    <AddNewPostFormRedux onSubmit={onAddPost}/>
                 </div>
-
                 {postsElements}
             </div>
+
         </div>
     )
 }
+
 
 export default MyPosts;
