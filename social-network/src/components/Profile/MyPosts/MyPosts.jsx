@@ -4,7 +4,7 @@ import Post from './Post/Post';
 import MyButton from "../../MyButton/MyButton";
 import {Field, reduxForm} from "redux-form";
 import {maxLengthCreator, required} from "../../../utils/validators/validators";
-import Textarea from "../../common/FormsControls/FormControls";
+import {Textarea} from "../../common/FormsControls/FormControls";
 const AddNewPostForm = (props) => {
     return (
         <form className={classes.play} onSubmit={props.handleSubmit}>

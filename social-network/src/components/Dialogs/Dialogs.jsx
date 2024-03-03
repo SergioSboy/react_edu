@@ -5,6 +5,8 @@ import MyButton from "../MyButton/MyButton";
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
 import {Field, reduxForm} from "redux-form";
+import {Textarea} from "../common/FormsControls/FormControls";
+import {maxLengthCreator, required} from "../../utils/validators/validators";
 
 const Dialogs = (props) => {
     const onSubmit = (formData) => {
@@ -45,7 +47,9 @@ const AddMessageForm = (props) => {
     return (
         <form className={classes.play} onSubmit={props.handleSubmit}>
             <div className={classes.my_input}>
-                <Field component={'textarea'} name='newMessageBody' placeholder='Write...'/>
+                <Field component={Textarea}
+                       validate={[required, maxLengthCreator(50)]}
+                       name='newMessageBody' placeholder='Write...'/>
             </div>
             <div>
 
