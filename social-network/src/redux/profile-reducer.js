@@ -55,7 +55,8 @@ export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile});
 export const deletePost = (postId) => ({type: DELETE_POST, postId});
 
 export const getUserProfile = (userId) => (dispatch) => {
-    usersAPI.getProfile(userId).then(response => {
+    usersAPI.getProfile(userId)
+        .then(response => {
         dispatch(setUserProfile(response.data));
     });
 };
